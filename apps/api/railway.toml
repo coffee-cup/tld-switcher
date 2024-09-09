@@ -1,0 +1,5 @@
+[build]
+buildCommand = "pnpm run build --filter api"
+
+[deploy]
+startCommand = "pnpm run start --filter api"
