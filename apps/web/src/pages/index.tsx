@@ -1,6 +1,6 @@
 import { getTld } from "@repo/ui/helpers";
 import { useIsMounted } from "@repo/ui/hooks/useIsMounted";
-import { Nav } from "@repo/ui/nav";
+import { Button } from "@repo/ui/button";
 
 const Home = () => {
   const tld = getTld();
@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <div className="grid grid-rows-[auto_1fr] max-w-[1024px] w-full mx-auto p-8 h-full">
-      <Nav />
+      {/* <Nav /> */}
 
       <main className="flex items-center w-full h-full">
         <div className="mb-20 md:mb-96">
