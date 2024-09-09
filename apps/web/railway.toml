@@ -1,0 +1,5 @@
+[build]
+buildCommand = "pnpm run build --filter web"
+
+[start]
+startCommand = "pnpm run start --filter web"
