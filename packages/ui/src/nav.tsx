@@ -1,13 +1,12 @@
 import { ChevronsLeftRightEllipsis } from "lucide-react";
-import { type ClassValue, clsx } from "clsx";
-// import { blogDomain, docsDomain, homeDomain } from "./helpers";
+import { blogDomain, docsDomain, homeDomain } from "./helpers";
 
 export const Nav = () => {
   return (
     <nav className="w-full flex items-center justify-between py-8">
       <ChevronsLeftRightEllipsis className="text-primary" size={32} />
 
-      {/* <ul className="flex items-center gap-6 font-semibold">
+      <ul className="flex items-center gap-6 font-semibold">
         <li>
           <a href={homeDomain} className="hover:text-primary hover:underline">
             home
@@ -25,7 +24,7 @@ export const Nav = () => {
             docs
           </a>
         </li>
-      </ul> */}
+      </ul>
     </nav>
   );
 };

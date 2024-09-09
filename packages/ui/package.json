@@ -8,6 +8,7 @@
     "./card": "./src/card.tsx",
     "./code": "./src/code.tsx",
     "./nav": "./src/nav.tsx",
+    "./status-color": "./src/status-color.tsx",
     "./helpers": "./src/helpers.ts",
     "./hooks/useIsMounted": "./src/hooks/useIsMounted.ts"
   },
