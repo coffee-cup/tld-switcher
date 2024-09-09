@@ -1,6 +1,6 @@
 import { getTld } from "@repo/ui/helpers";
 import { Nav } from "@repo/ui/nav";
-import { useIsMounted } from "@repo/ui/hooks/useIsMounted";
+import { useState, useEffect } from "react";
 
 const Home = () => {
   const tld = getTld();
@@ -31,3 +31,13 @@ const Home = () => {
 };
 
 export default Home;
+
+export const useIsMounted = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  return isMounted;
+};

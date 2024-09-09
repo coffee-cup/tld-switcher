@@ -1,6 +1,7 @@
+import React, { useEffect, useState } from "react";
 import { getTld } from "@repo/ui/helpers";
-import { useIsMounted } from "@repo/ui/hooks/useIsMounted";
 import { Button } from "@repo/ui/button";
+import { Nav } from "@repo/ui/nav";
 
 const Home = () => {
   const tld = getTld();
@@ -10,7 +11,7 @@ const Home = () => {
 
   return (
     <div className="grid grid-rows-[auto_1fr] max-w-[1024px] w-full mx-auto p-8 h-full">
-      {/* <Nav /> */}
+      <Nav />
 
       <main className="flex items-center w-full h-full">
         <div className="mb-20 md:mb-96">
@@ -23,3 +24,13 @@ const Home = () => {
 };
 
 export default Home;
+
+export const useIsMounted = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  return isMounted;
+};

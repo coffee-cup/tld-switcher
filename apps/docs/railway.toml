@@ -1,0 +1,5 @@
+[build]
+buildCommand = "pnpm run build --filter docs"
+
+[deploy]
+startCommand = "pnpm run start --filter docs"
