@@ -2,4 +2,4 @@
 buildCommand = "pnpm run build --filter api"
 
 [deploy]
-startCommand = "pnpm run start --filter api"
+startCommand = "pnpm run start --filter api --env-mode=loose"
