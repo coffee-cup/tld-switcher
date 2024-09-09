@@ -29,7 +29,7 @@ export const getRootDomain = () => {
 
 export const createSubdomain = (subdomain: string) => {
   const tld = getTld();
-  return `httsp://${subdomain}.railway.${tld}`;
+  return `https://${subdomain}.railway.${tld}`;
 };
 
 const rootDomain = getRootDomain();
