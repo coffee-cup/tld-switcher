@@ -1,5 +1,5 @@
 [build]
 buildCommand = "pnpm run build --filter web"
 
-[start]
+[deploy]
 startCommand = "pnpm run start --filter web"
