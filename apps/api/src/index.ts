@@ -1,13 +1,19 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
+import { redis } from "./redis";
 
 const app = new Hono();
 
-app.get("/", (c) => {
+app.get("/", async (c) => {
   const host = c.req.header("host");
   console.log("Host: ", host);
 
-  return c.text("Hello Hono!");
+  const ping = await redis.ping();
+
+  return c.json({
+    redisPing: ping,
+    host,
+  });
 });
 
 const port = 6070;
