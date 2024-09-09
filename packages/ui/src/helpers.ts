@@ -24,12 +24,12 @@ export const getRootDomain = () => {
   const parts = hostname.split(".");
   const tld = parts.pop() || "";
   const domain = parts.pop() || "";
-  return `${domain}.${tld}`;
+  return `https://${domain}.${tld}`;
 };
 
 export const createSubdomain = (subdomain: string) => {
   const tld = getTld();
-  return `${subdomain}.${tld}`;
+  return `httsp://${subdomain}.railway.${tld}`;
 };
 
 const rootDomain = getRootDomain();
