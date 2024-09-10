@@ -5,7 +5,6 @@ export const useUser = (): UseQueryResult<any, Error> => {
   const res = useQuery({
     queryKey: ["user"],
     queryFn: async () => {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
       const apiUrl = getApiUrl();
       const response = await fetch(`${apiUrl}/user`, {
         credentials: "include", // Add this line

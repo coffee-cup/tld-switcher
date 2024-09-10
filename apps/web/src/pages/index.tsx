@@ -23,25 +23,23 @@ const Home = () => {
       <Nav className="col-start-2 px-8" />
 
       <main className="flex items-center w-full h-full col-start-2 px-8">
-        <div className="mb-20 md:mb-96">
+        <div className="mb-20 md:mb-96 h-[228px]">
           <h1 className="text-6xl font-bold mb-12">.{tld}</h1>
 
-          <div className="h-[120px]">
-            {isError && <Login />}
+          {isError && <Login />}
 
-            {data && (
-              <div className="grid gap-6">
-                <GitHubUser {...data} />
+          {data && (
+            <div className="grid gap-6">
+              <GitHubUser {...data} />
 
-                <a
-                  href={`${getApiUrl()}/logout`}
-                  className="text-sm text-gray-500 hover:opacity-70"
-                >
-                  Logout
-                </a>
-              </div>
-            )}
-          </div>
+              <a
+                href={`${getApiUrl()}/logout`}
+                className="text-sm text-gray-500 hover:opacity-70"
+              >
+                Logout
+              </a>
+            </div>
+          )}
         </div>
       </main>
 

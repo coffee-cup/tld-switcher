@@ -1,5 +1,5 @@
 import { Footer } from "@repo/ui/footer";
-import { getTld } from "@repo/ui/helpers";
+import { cn, getTld } from "@repo/ui/helpers";
 import { Nav } from "@repo/ui/nav";
 import { StatusColor } from "@repo/ui/status-color";
 import { useEffect, useState } from "react";
@@ -10,6 +10,13 @@ const Home = () => {
 
   if (!isMounted) return null;
 
+  const color =
+    tld === "blue"
+      ? "bg-blue-200"
+      : tld === "red"
+        ? "bg-red-200"
+        : "bg-gray-200";
+
   return (
     <div className="grid grid-rows-[auto_auto_1fr_auto] grid-cols-[auto_minmax(0,1024px)_auto] min-h-screen">
       <StatusColor tld={tld} className="col-span-3" />
@@ -17,14 +24,13 @@ const Home = () => {
       <Nav className="col-start-2 px-8" />
 
       <main className="flex items-center w-full h-full col-start-2 px-8">
-        <div className="mb-20 md:mb-96">
-          <h1 className="text-6xl font-bold mb-12">
-            <span className="text-secondary">~</span> Docs{" "}
-            <span className="text-secondary">~</span>
-          </h1>
+        <div className="mb-20 md:mb-96 h-[228px]">
+          <h1 className="text-6xl font-bold mb-12">Docs</h1>
           <p>
             These are the docs for{" "}
-            <span className="bg-secondary px-1 py-px rounded-md font-mono">
+            <span
+              className={cn("bg-accent px-1 py-px rounded-md font-mono", color)}
+            >
               .{tld}
             </span>
           </p>
