@@ -7,5 +7,5 @@ export const getApiUrl = () => {
     return "http://localhost:6070";
   }
 
-  return `https://api.${tld}`;
+  return `https://api.railway.${tld}`;
 };
