@@ -10,6 +10,7 @@
     "./nav": "./src/nav.tsx",
     "./status-color": "./src/status-color.tsx",
     "./helpers": "./src/helpers.ts",
+    "./footer": "./src/footer.tsx",
     "./hooks/useIsMounted": "./src/hooks/useIsMounted.ts"
   },
   "scripts": {

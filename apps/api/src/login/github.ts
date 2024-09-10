@@ -32,7 +32,7 @@ app.get("/login/github", async (c) => {
   const host = c.req.header("host");
   const next = c.req.query("next");
 
-  const protocol = host === "localhost" ? "http" : "https";
+  const protocol = host?.includes("localhost") ? "http" : "https";
   const redirectUri = `${protocol}://${host}/login/github/callback`;
 
   console.log("login/github:", c.req.header("host"), redirectUri);
