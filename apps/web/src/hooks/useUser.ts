@@ -1,7 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, UseQueryResult } from "@tanstack/react-query";
 import { getApiUrl } from "../api";
 
-export const useUser = () => {
+export const useUser = (): UseQueryResult<any, Error> => {
   const res = useQuery({
     queryKey: ["user"],
     queryFn: async () => {
