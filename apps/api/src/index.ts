@@ -1,8 +1,9 @@
 import { serve } from "@hono/node-server";
-import { Hono } from "hono";
 import { redis } from "./redis";
-
-const app = new Hono();
+import { app } from "./hono";
+import { getCookie } from "hono/cookie";
+import "./login/github";
+import { getGitHubUser } from "./login/github";
 
 app.get("/", async (c) => {
   const host = c.req.header("host");
@@ -14,6 +15,18 @@ app.get("/", async (c) => {
     redisPing: ping,
     host,
   });
+});
+
+app.get("/user", async (c) => {
+  const token = getCookie(c, "token");
+
+  console.log("TOKEN", token);
+  if (!token) {
+    return c.json({ error: "No token" }, 401);
+  }
+
+  const userData = await getGitHubUser(token);
+  return c.json(userData);
 });
 
 const port = 6070;

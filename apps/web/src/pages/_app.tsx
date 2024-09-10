@@ -1,15 +1,18 @@
 import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
 import { cn } from "@repo/ui/helpers";
+import { NextSeo } from "next-seo";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import "../global.css";
-import { NextSeo } from "next-seo";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const queryClient = new QueryClient();
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <NextSeo
         title="TLD Switch"
         description="Testing bed for switching from a .app to a .com domain"
@@ -23,6 +26,6 @@ export default function App({ Component, pageProps }: AppProps) {
       >
         <Component {...pageProps} />
       </div>
-    </>
+    </QueryClientProvider>
   );
 }

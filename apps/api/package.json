@@ -8,10 +8,12 @@
   "dependencies": {
     "@hono/node-server": "^1.12.2",
     "hono": "^4.5.11",
-    "ioredis": "^5.4.1"
+    "ioredis": "^5.4.1",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.17",
+    "@types/uuid": "^10.0.0",
     "tsx": "^4.7.1"
   }
 }
