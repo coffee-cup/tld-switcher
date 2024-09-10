@@ -1,9 +1,11 @@
 import { ChevronsLeftRightEllipsis } from "lucide-react";
-import { blogDomain, docsDomain, homeDomain } from "./helpers";
+import { blogDomain, cn, docsDomain, homeDomain } from "./helpers";
 
-export const Nav = () => {
+export const Nav = ({ className }: { className?: string }) => {
   return (
-    <nav className="w-full flex items-center justify-between py-8">
+    <nav
+      className={cn("w-full flex items-center justify-between py-8", className)}
+    >
       <ChevronsLeftRightEllipsis className="text-primary" size={32} />
 
       <ul className="flex items-center gap-6 font-semibold">

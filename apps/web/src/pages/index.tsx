@@ -17,33 +17,56 @@ const Home = () => {
   if (!isMounted) return null;
 
   return (
-    <div>
-      <StatusColor tld={tld} />
+    <div className="grid grid-rows-[auto_auto_1fr_auto] grid-cols-[auto_minmax(0,1024px)_auto] min-h-screen">
+      <StatusColor tld={tld} className="col-span-3" />
 
-      <div className="grid grid-rows-[auto_1fr] max-w-[1024px] w-full mx-auto p-8 h-full">
-        <Nav />
+      <Nav className="col-start-2 px-8" />
 
-        <main className="flex items-center w-full h-full">
-          <div className="mb-20 md:mb-96">
-            <h1 className="text-6xl font-bold mb-12">.{tld}</h1>
+      <main className="flex items-center w-full h-full col-start-2 px-8">
+        <div className="mb-20 md:mb-96">
+          <h1 className="text-6xl font-bold mb-12">.{tld}</h1>
 
-            {isError && <Login />}
+          {isError && <Login />}
 
-            {data && (
-              <div className="grid gap-6">
-                <GitHubUser {...data} />
+          {data && (
+            <div className="grid gap-6">
+              <GitHubUser {...data} />
 
-                <a
-                  href={`${getApiUrl()}/logout`}
-                  className="text-sm text-gray-500 hover:opacity-70"
-                >
-                  Logout
-                </a>
-              </div>
-            )}
-          </div>
-        </main>
-      </div>
+              <a
+                href={`${getApiUrl()}/logout`}
+                className="text-sm text-gray-500 hover:opacity-70"
+              >
+                Logout
+              </a>
+            </div>
+          )}
+        </div>
+      </main>
+
+      <footer className="col-start-2 py-8 px-8">
+        {tld === "red" && (
+          <a
+            href="https://railway.blue"
+            className="text-blue-400 hover:underline"
+          >
+            Go to Railway Blue
+          </a>
+        )}
+
+        {tld === "blue" && (
+          <a
+            href="https://railway.red"
+            className="text-red-400 hover:underline"
+          >
+            Go to Railway Red
+          </a>
+        )}
+
+        {tld === "localhost" && (
+          <p className="text-sm text-gray-500">localhost</p>
+        )}
+      </footer>
+      {/* </div> */}
     </div>
   );
 };

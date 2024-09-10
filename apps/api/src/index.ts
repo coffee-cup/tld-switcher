@@ -20,7 +20,6 @@ app.get("/", async (c) => {
 app.get("/user", async (c) => {
   const token = getCookie(c, "token");
 
-  console.log("TOKEN", token);
   if (!token) {
     return c.json({ error: "No token" }, 401);
   }
