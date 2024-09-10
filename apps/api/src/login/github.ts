@@ -99,7 +99,11 @@ const getDefaultNext = (redirectUri: string) => {
     return "http://localhost:6060";
   }
 
-  return "https://railway.blue";
+  if (redirectUri.includes("railway.blue")) {
+    return "https://railway.blue";
+  }
+
+  return "https://railway.red";
 };
 
 const getCookieDomain = (redirectUri: string) => {
