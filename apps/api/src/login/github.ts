@@ -16,10 +16,13 @@ if (!githubClientId || !githubClientSecret) {
 }
 
 app.get("/logout", (c) => {
-  deleteCookie(c, "token");
+  deleteCookie(c, "token", {
+    domain: getCookieDomain(c.req.url),
+  });
+
   const next = c.req.query("next") ?? getDefaultNext(c.req.url);
 
-  console.log("NEXT", next);
+  console.log("logout:", c.req.header("host"));
 
   return c.redirect(next);
 });
@@ -29,7 +32,10 @@ app.get("/login/github", async (c) => {
   const host = c.req.header("host");
   const next = c.req.query("next");
 
-  const redirectUri = `http://${host}/login/github/callback`;
+  const protocol = host === "localhost" ? "http" : "https";
+  const redirectUri = `${protocol}://${host}/login/github/callback`;
+
+  console.log("login/github:", c.req.header("host"), redirectUri);
 
   const state = await getStateString({
     next,
@@ -37,12 +43,6 @@ app.get("/login/github", async (c) => {
   });
 
   const url = `https://github.com/login/oauth/authorize?client_id=${githubClientId}&redirect_uri=${redirectUri}&state=${state}`;
-
-  // return c.json({
-  //   url,
-  //   redirectUri,
-  //   state,
-  // });
 
   return c.redirect(url);
 });
