@@ -10,9 +10,7 @@ if (!githubClientId || !githubClientSecret) {
 }
 
 app.get("/logout", (c) => {
-  deleteCookie(c, "token", {
-    domain: getCookieDomain(c.req.url),
-  });
+  deleteCookie(c, "token");
 
   const next = c.req.query("next") ?? getDefaultNext(c.req.url);
 
@@ -79,7 +77,7 @@ app.get("/login/github/callback", async (c) => {
 
   // Set a cookie with the access token
   setCookie(c, "token", accessToken, {
-    domain: getCookieDomain(redirectUri),
+    ...(redirectUri.includes("localhost") ? { domain: "localhost" } : {}),
     httpOnly: true,
     sameSite: "Lax",
     secure: false,
