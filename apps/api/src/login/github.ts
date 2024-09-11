@@ -1,12 +1,6 @@
+import { deleteCookie, setCookie } from "hono/cookie";
 import { getAndValidateStateData, getStateString } from "../authState";
 import { app } from "../hono";
-import {
-  getCookie,
-  getSignedCookie,
-  setCookie,
-  setSignedCookie,
-  deleteCookie,
-} from "hono/cookie";
 
 const githubClientId = process.env.GITHUB_CLIENT_ID;
 const githubClientSecret = process.env.GITHUB_CLIENT_SECRET;
